@@ -35,13 +35,19 @@ function inicializaCronometro() {
             tempoRestante--;
             $("#tempo-digitacao").text(tempoRestante);
             if(tempoRestante < 1){
-                campo.attr("disabled", true);
                 clearInterval(IdCronometro);
                 $("#botao-reiniciar").attr("disabled", false);
-                campo.toggleClass("campo-desativado");
+                finalizaJogo();
             }
         },1000);
     });
+}
+
+function finalizaJogo(){
+    campo.attr("disabled", true);
+   
+    campo.toggleClass("campo-desativado");
+    inserePlacar();
 }
 
 function inicializaMarcadores(){
@@ -61,6 +67,8 @@ function inicializaMarcadores(){
     });
 
 }
+
+
 
 
 function reiniciaJogo(){
