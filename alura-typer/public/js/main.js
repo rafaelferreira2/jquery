@@ -9,6 +9,7 @@ $(function(){
     botao = $("#botao-reiniciar").click(reiniciaJogo);
 });
 
+
 function atualizaTamanhoFrase(){
     var frase = $(".frase").text();
     var numPalavras = frase.split(" ").length;
@@ -43,12 +44,14 @@ function inicializaCronometro() {
     });
 }
 
+
 function finalizaJogo(){
     campo.attr("disabled", true);
    
     campo.toggleClass("campo-desativado");
     inserePlacar();
 }
+
 
 function inicializaMarcadores(){
     var frase = $(".frase").text();
@@ -67,8 +70,6 @@ function inicializaMarcadores(){
     });
 
 }
-
-
 
 
 function reiniciaJogo(){
