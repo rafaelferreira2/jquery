@@ -1,4 +1,5 @@
 $("#botao-frase").click(fraseAleatoria);
+$("#botao-frase-id").click(buscaFrase);
 
 
 function fraseAleatoria() {
@@ -23,4 +24,15 @@ function trocaFraseAleatoria(data){
     frase.text(data[numeroAleatorio].texto);
     atualizaTamanhoFrase();
     atualizaTempoInicial(data[numeroAleatorio].tempo);
+}
+
+function buscaFrase(){
+    var fraseID = $("#botao-frase-id").val();
+    var dados = {id: fraseID};
+
+    $.get("http://localhost:3000/frases",dados, trocaFrase)
+}
+
+function trocaFrase(){
+
 }
