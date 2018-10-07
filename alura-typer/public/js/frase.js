@@ -27,12 +27,27 @@ function trocaFraseAleatoria(data){
 }
 
 function buscaFrase(){
-    var fraseID = $("#botao-frase-id").val();
+    $("#spinner").toggle();
+
+    var fraseID = $("#frase-id").val();
     var dados = {id: fraseID};
 
-    $.get("http://localhost:3000/frases",dados, trocaFrase)
+    $.get("http://localhost:3000/frases", dados, trocaFrase)
+    .fail(function(){
+        $("#erro").toggle();
+        setTimeout(function(){
+            $("#erro").toggle();
+        },2000);
+    })
+    .always(function(){ // novo, escondendo o spinner
+        $("#spinner").toggle();
+    });
 }
 
-function trocaFrase(){
+function trocaFrase(data){
+    var frase = $(".frase");
+    frase.text(data.texto);
+    atualizaTamanhoFrase();
+    atualizaTempoInicial(data.tempo);
 
 }
