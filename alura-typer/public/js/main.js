@@ -8,6 +8,14 @@ $(function(){
     inicializaMarcadores();
     botao = $("#botao-reiniciar").click(reiniciaJogo);
     atualizaPlacar();
+    $("#usuarios").selectize({
+        create: true,
+        sortField: 'text'
+    });
+    $(".tooltip").tooltipster({
+        theme: 'tooltipster-punk',
+        trigger: "custom"
+    });
 });
 
 function atualizaTempoInicial(tempo){
